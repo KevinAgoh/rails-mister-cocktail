@@ -1,0 +1,21 @@
+<h1>Cocktail numéro <%= @cocktail.id %></h1>
+
+<h3><%= @cocktail.name %></h3>
+
+<p>Here are the ingredients you need to make this cocktail:</p>
+
+<ul>
+<% @cocktail.doses.each do |dose| %>
+  <li>
+    <%= dose.ingredient.name %>  
+  </li>
+<% end %>
+</ul>
+
+<p>Add a new dose</p>
+
+<%= simple_form_for [cocktail, dose] do |f| %>
+  <%= f.input :description, label: "Describe what to do" %>
+  <%= f.association :ingredients, as: :radio_buttons %>
+  <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>

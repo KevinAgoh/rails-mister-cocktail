@@ -7,13 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "creating seeds..."
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
-Ingredient.create(name: "Dark rum")
-Ingredient.create(name: "Sweet Vermouth")
-Ingredient.create(name: "Strawberry schnapps")
-Ingredient.create(name: "Scotch")
-Ingredient.create(name: "Apricot brandy")
-Ingredient.create(name: "Champagne")
+Cocktail.create(name: "Moscow Mule")
+Cocktail.create(name: "Mojito")
+Cocktail.create(name: "Punch")
+Cocktail.create(name: "Piña Colada")
 puts "done!"

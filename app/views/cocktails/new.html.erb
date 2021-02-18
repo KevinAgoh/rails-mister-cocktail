@@ -1,0 +1,6 @@
+<h1>Create a new cocktail</h1>
+
+<%= simple_form_for(@cocktail, html: { class: "nice-class"}) do |f| %>
+  <%= f.input :name, label: "Name", input_html: { class: "nice-class" } %>
+  <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>
