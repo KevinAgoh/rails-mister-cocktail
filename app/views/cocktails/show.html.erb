@@ -17,15 +17,23 @@
   <p>Here are the doses</p>
 
   <% @cocktail.doses.each do |dose| %>
+  <div class="list-group-item">
    <p><%= dose.description %></p>
+   <%= link_to "Remove",
+                  dose_path(dose),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+  </div>
   <% end %>
 
   <p>Add a new dose</p>
 
   <%= simple_form_for [@cocktail, @dose] do |f| %>
-    <%= f.association :ingredient %>
-    <%= f.input :description, label: "Describe what to do" %>
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <li class="list-group-item">
+      <%= f.association :ingredient %>
+      <%= f.input :description, label: "Describe what to do" %>
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </li>
   <% end %>
 
 </div>
