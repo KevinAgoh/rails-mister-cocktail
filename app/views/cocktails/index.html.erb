@@ -1,19 +1,23 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>Kéum's cocktails</h1>
+<div class="main-container">
+  <div class="row no-gutters">
+    <div class="col-lg-4">
+      <div class="infos pl-3" class="text-center">
+        <h1>Kéum's cocktails</h1>
+        <h2>You can check out our fabulous cocktails on the right. Click on one of the cards !</h2>
+        <%= link_to "Create a new cocktail", new_cocktail_path %>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div class="cards p-3">
+        <% @cocktails.each do |cocktail| %>
+          <div class="card-category">
+            <%= link_to cocktail.name, cocktail_path(cocktail.id) %>  
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="container">
-  <h1>Here are the list of cocktails</h1>
 
-  <ul>
-  <% @cocktails.each do |cocktail| %>
-    <li>
-      <%= link_to cocktail.name, cocktail_path(cocktail.id) %>  
-    </li>
-  <% end %>
-  </ul>
-
-  <%= link_to "Create a new cocktail", new_cocktail_path %>
-</div>

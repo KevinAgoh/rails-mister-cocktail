@@ -15,3 +15,9 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import { initModalOnDeleteIngredient } from "../components/delete_modal";
+
+const removeButton = document.querySelector("body > div.container > div > button > a")
+removeButton.addEventListener('click', (e) => {
+  e.currentTarget.initModalOnDeleteIngredient();
+});
