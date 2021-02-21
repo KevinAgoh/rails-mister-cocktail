@@ -1,12 +1,15 @@
 // Import page-specific CSS files here.
 @import "home";
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;700&display=swap');
 
 .main-container {
   display: flex;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .link {
   font-size: 32px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .infos {
@@ -17,11 +20,12 @@
   ), asset-url("olena-sergienko-JjGLEN7T8xI-unsplash.jpg");
   background-size: cover;
   color: white;
-  display: flex;
   flex-direction: column;
   align-content: center;
   position: sticky;
   top: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  display: flex;
 }
 
 .text-center {
@@ -31,9 +35,11 @@
 a {
   text-decoration: none;
   color: #FFE53B;
+  font-family: 'Josefin Sans', sans-serif;
   &:hover {
     text-decoration: none;
     color: #FF2525;
+    font-family: 'Josefin Sans', sans-serif;
   }
 }
 
@@ -61,6 +67,7 @@ a {
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-image: linear-gradient( 109.9deg,  rgba(251,189,100,1) 1.8%, rgba(255,207,139,1) 95.4% );
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 // Smallest device

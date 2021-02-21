@@ -29,7 +29,7 @@
 
   <div class="row">
 
-    <div class="col-lg-6">
+    <div class="col-lg-6 p-3">
       <% @cocktail.doses.each do |dose| %>
         <div class="list-group-item">
           <p><%= dose.ingredient.name %></p>
@@ -47,29 +47,31 @@
       <p>Add a new dose</p>
 
       <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <li class="list-group-item">
+        <li class="list-group-item" id="dose">
           <%= f.association :ingredient %>
           <%= f.input :description, label: "Describe what to do" %>
           <%= f.button :submit, class: "btn btn-primary" %>
         </li>
       <% end %>
     </div>
-    <div class="col-lg-6">
-      <% @cocktail.reviews.each do |review| %>
-        <div class="list-group-item">
-          <i class="far fa-star"></i> <%= review.rating %>
-          <p><%= review.content %></p>
-        </div>
-      <% end %>
+    <div class="col-lg-6 p-3">
 
       <%= simple_form_for [@cocktail, @review] do |f| %>
-        <li class="list-group-item">
+        <li class="list-group-item" class="review">
           <h2>Add a review</h2>
           <%= f.input :content, label: "What do you thing about this cocktail?" %>
           <%= f.input :rating, collection: 1..5, as: :radio_buttons %>
           <%= f.submit %>
         </li>
       <% end %>
+
+      <% @cocktail.reviews.each do |review| %>
+        <div class="list-group-item" class="review">
+          <i class="far fa-star"></i> <%= review.rating %>
+          <p><%= review.content %></p>
+        </div>
+      <% end %>
+
     </div>
     <%= link_to  "Homepage", cocktails_path %>
   </div>
