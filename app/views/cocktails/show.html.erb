@@ -20,34 +20,58 @@
 </div>
 
 <div class="container">
-
-  <h1><%= @cocktail.name %></h1>
-
-  <p>You'll find bellow a detailed description of the ingredients with the according doses</p>
-
-  <% @cocktail.doses.each do |dose| %>
-    <div class="list-group-item">
-      <p><%= dose.ingredient.name %></p>
-      <p><%= dose.description %></p>
-      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="delete-modal">
-        <%= link_to "Remove",
-                       dose_path(dose),
-                       method: :delete,
-                       data: { confirm: "Are you sure?" } %>
-        <i class="fas fa-trash-alt"></i>
-      </button>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+    <div class="container">
+      <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+      <p>Change your life and learn to code at one of our campuses around the world.</p>
+      <a class="btn btn-flat" href="#">Apply now</a>
     </div>
-  <% end %>
+  </div>
 
-  <p>Add a new dose</p>
+  <div class="row">
 
-  <%= simple_form_for [@cocktail, @dose] do |f| %>
-    <li class="list-group-item">
-      <%= f.association :ingredient %>
-      <%= f.input :description, label: "Describe what to do" %>
-      <%= f.button :submit, class: "btn btn-primary" %>
-    </li>
-  <% end %>
+    <div class="col-lg-6">
+      <% @cocktail.doses.each do |dose| %>
+        <div class="list-group-item">
+          <p><%= dose.ingredient.name %></p>
+          <p><%= dose.description %></p>
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="delete-modal">
+            <%= link_to "Remove",
+                           dose_path(dose),
+                           method: :delete,
+                           data: { confirm: "Are you sure?" } %>
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      <% end %>
 
+      <p>Add a new dose</p>
+
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <li class="list-group-item">
+          <%= f.association :ingredient %>
+          <%= f.input :description, label: "Describe what to do" %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        </li>
+      <% end %>
+    </div>
+    <div class="col-lg-6">
+      <% @cocktail.reviews.each do |review| %>
+        <div class="list-group-item">
+          <i class="far fa-star"></i> <%= review.rating %>
+          <p><%= review.content %></p>
+        </div>
+      <% end %>
+
+      <%= simple_form_for [@cocktail, @review] do |f| %>
+        <li class="list-group-item">
+          <h2>Add a review</h2>
+          <%= f.input :content, label: "What do you thing about this cocktail?" %>
+          <%= f.input :rating, collection: 1..5, as: :radio_buttons %>
+          <%= f.submit %>
+        </li>
+      <% end %>
+    </div>
+  </div>
 </div>
 
