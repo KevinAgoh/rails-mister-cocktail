@@ -2,7 +2,11 @@
 @import "home";
 
 .main-container {
-  
+  display: flex;
+}
+
+.link {
+  font-size: 32px;
 }
 
 .infos {
@@ -16,6 +20,8 @@
   display: flex;
   flex-direction: column;
   align-content: center;
+  position: sticky;
+  top: 0;
 }
 
 .text-center {
