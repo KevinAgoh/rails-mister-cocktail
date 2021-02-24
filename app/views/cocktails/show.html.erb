@@ -44,29 +44,31 @@
         </div>
       <% end %>
 
-      <p>Add a new dose</p>
+      
 
       <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <li class="list-group-item" id="dose">
+        <div class="list-group-item" id="dose">
+          <h2>Add a new dose</h2>
           <%= f.association :ingredient %>
           <%= f.input :description, label: "Describe what to do" %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        </li>
+          <%= f.button :submit, class: "btn-review" %>
+        </div>
       <% end %>
     </div>
+
     <div class="col-lg-6 p-3">
 
       <%= simple_form_for [@cocktail, @review] do |f| %>
-        <li class="list-group-item" class="review">
+        <div class="review" class="p-3">
           <h2>Add a review</h2>
           <%= f.input :content, label: "What do you thing about this cocktail?" %>
           <%= f.input :rating, collection: 1..5, as: :radio_buttons %>
-          <%= f.submit %>
-        </li>
+          <%= f.button :submit, class: "btn-review" %>
+        </div>
       <% end %>
 
       <% @cocktail.reviews.each do |review| %>
-        <div class="list-group-item" class="review">
+        <div class="review">
           <i class="far fa-star"></i> <%= review.rating %>
           <p><%= review.content %></p>
         </div>
